@@ -6,20 +6,29 @@ import android.view.ViewGroup
 
 class HomeAdapter: RecyclerView.Adapter<CustomViewHolder>()
 {
+     val videoList = listOf("Queen of the south", "Game of thrones", "The hunter", "Ghost Fighter")
+    
     override fun getItemCount(): Int {
         return 2
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CustomViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+          val layoutInflater = LayoutInflater.from(parentVG.context)
+
+        val cellPerRow = layoutInflater.inflate(R.layout.video_row_list, parentVG, false)
+
+        return CustomViewHolder(cellPerRow)
     }
 
     override fun onBindViewHolder(p0: CustomViewHolder, p1: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+         val videoTitle = videoList.get(position)
+
+        holder.view.tv_video_title.text= videoTitle
+
     }
 }
 
-class CustomViewHolder (v: View): RecyclerView.ViewHolder(v)
+class CustomViewHolder val view: View): RecyclerView.ViewHolder(view)
 {
 
 }
