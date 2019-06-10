@@ -41,6 +41,10 @@ class MainActivity : AppCompatActivity() {
                 val body = response?.body?.string()
 
                 println(body)
+                
+                 val gson = GsonBuilder().create()
+
+                val homeFeed = gson.fromJson(body,HomeFeed::class.java )
 
             }
 
@@ -50,3 +54,8 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
+
+class  HomeFeed(val videos : List<Video>)
+
+class Video (val id: Int, val name: String )
+
