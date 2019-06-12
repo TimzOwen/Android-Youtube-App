@@ -4,12 +4,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 
-class HomeAdapter: RecyclerView.Adapter<CustomViewHolder>()
+class HomeAdapter (val homeFeed: HomeFeed): RecyclerView.Adapter<CustomViewHolder>()
 {
      val videoList = listOf("Queen of the south", "Game of thrones", "The hunter", "Ghost Fighter")
     
     override fun getItemCount(): Int {
-        return 2
+        return homeFeed.videos.count()
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): CustomViewHolder {
